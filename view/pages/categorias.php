@@ -19,13 +19,13 @@
             <img src="logo.jpg" alt="logo">
             <ul>
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="Home.php">Home</a>
                 </li>
-                <li>Artigos</li>
+                <a href="artigos.php">Artigos</a>
                 <li>
-                    <a href="categorias.html">Categorias</a>
+                    <a href="categorias.php">Categorias</a>
                 </li>
-                <li>Usuários</li>
+                <a href="usuarios.php">Usuários</a>
             </ul>
         </nav>
     </aside>
