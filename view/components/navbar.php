@@ -1,6 +1,8 @@
+<?php require_once "../../config/env.php"; ?>
+
 <!-- navegação -->
 <header class="navbar-grid">
-        <nav class="content-nav">
-            <img src="../assets/user.jpg" alt="imagem-usuario" width="50px">
-        </nav>
-    </header>
+    <nav>
+        <img src="<?= VARIAVEIS['DIR_IMG'] ?>user.jpg" alt="imagem-usuario">
+    </nav>
+</header>

@@ -1,19 +1,56 @@
-<aside class="sidebar-grid">
-        <nav>
-            <img src="../assets/logo.jpg" alt="logo" width="60px">
-            <ul>
-                <li>
-                    <a href="../pages/Home.php">Home</a>
-                </li>
-                <li>
-                    <a href="../pages/artigos.php">Artigos</a>
-                </li>
-                <li>
-                    <a href="../pages/categorias.php">Categorias</a>
-                </li>
-                <li>
-                    <a href="../pages/usuarios.php">Usuarios</a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+<?php require_once "../../config/env.php"; ?>
+
+<!-- lateral -->
+<aside id="sidebar" class="sidebar">
+    <div id="menu-mobile" class="btn-icon menu-mobile">
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+    </div>
+
+    <nav class="nav">
+        <img src="<?= VARIAVEIS['DIR_IMG'] ?>logo.jpg" alt="logo">
+        <ul id="nav-items" class="nav-items">
+            <li class="nav-item">
+                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>home.php">
+                    <span class="material-symbols-outlined">
+                        home
+                    </span>
+                    <span>
+                        Home
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>artigos.php">
+                    <span class="material-symbols-outlined">
+                        news
+                    </span>
+                    <span>
+                        Artigos
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>categorias.php">
+                    <span class="material-symbols-outlined">
+                        label
+                    </span>
+                    <span>
+                        Categorias
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>usuarios.php">
+                    <span class="material-symbols-outlined">
+                        group
+                    </span>
+                    <span>
+                        Usuários
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</aside>

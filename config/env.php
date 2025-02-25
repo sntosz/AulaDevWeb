@@ -1,21 +1,16 @@
-<?php 
+<?php
 
-$Arquiv = "../env";
-$conteudoArquivo = file($Arquiv);
-
-
+$caminhoArquivo = __DIR__ . '/../.env';
+$conteudoArquivo = file($caminhoArquivo);
 
 $variaveis = [];
 
 array_map(
-    function($linha)use(&$variaveis){
-        list($key, $val) = explode('=', $linha);
-
+    function ($linha) use (&$variaveis) {
+        list($key, $val) = explode('=', $linha); 
         $variaveis[$key] = $val;
     },
-    $linhas
+    $conteudoArquivo
 );
-echo "<pre>";
-print_r($variaveis);
-echo "</pre>";
-?>
+
+define('VARIAVEIS', $variaveis);
