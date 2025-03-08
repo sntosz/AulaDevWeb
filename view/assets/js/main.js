@@ -1,5 +1,3 @@
-console.log('js foi carregado');
-
 // Marca o menu ativo
 document
 	.querySelector('#nav-items')
@@ -16,3 +14,16 @@ const sidebar = document.querySelector('#sidebar')
 mobileMenu.addEventListener('click', () => {
     sidebar.classList.toggle('open')
 })
+
+// Popup de editar
+
+function mostrarPopup() {
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('popupOverlay').style.display = 'block';
+}
+
+function fecharPopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('popupOverlay').style.display = 'none';
+    
+}

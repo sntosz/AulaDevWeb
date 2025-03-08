@@ -2,7 +2,7 @@
 
 class UsuarioModel {
 
-    public static $usuarios = [
+    public  $usuarios = [
         [
             'id' => 1,
             'nome' => 'João Silva',
@@ -90,39 +90,39 @@ class UsuarioModel {
             'telefone' => '(11) 99999-0011',
             'data_nascimento' => '1989-11-17',
             'cpf' => '123.456.789-11'
-        ],
-        [
-            'id' => 12,
-            'nome' => 'Bianca Ferreira',
-            'email' => 'bianca.ferreira@email.com',
-            'telefone' => '(11) 99999-0012',
-            'data_nascimento' => '1996-12-22',
-            'cpf' => '123.456.789-12'
-        ],
-        [
-            'id' => 13,
-            'nome' => 'Gustavo Teixeira',
-            'email' => 'gustavo.teixeira@email.com',
-            'telefone' => '(11) 99999-0013',
-            'data_nascimento' => '1986-01-08',
-            'cpf' => '123.456.789-13'
-        ],
-        [
-            'id' => 14,
-            'nome' => 'Larissa Carvalho',
-            'email' => 'larissa.carvalho@email.com',
-            'telefone' => '(11) 99999-0014',
-            'data_nascimento' => '1997-02-26',
-            'cpf' => '123.456.789-14'
-        ],
-        [
-            'id' => 15,
-            'nome' => 'Marcos Antunes',
-            'email' => 'marcos.antunes@email.com',
-            'telefone' => '(11) 99999-0015',
-            'data_nascimento' => '1984-03-18',
-            'cpf' => '123.456.789-15'
-        ]
+            ]
+        // [
+        //     'id' => 12,
+        //     'nome' => 'Bianca Ferreira',
+        //     'email' => 'bianca.ferreira@email.com',
+        //     'telefone' => '(11) 99999-0012',
+        //     'data_nascimento' => '1996-12-22',
+        //     'cpf' => '123.456.789-12'
+        // ],
+        // [
+        //     'id' => 13,
+        //     'nome' => 'Gustavo Teixeira',
+        //     'email' => 'gustavo.teixeira@email.com',
+        //     'telefone' => '(11) 99999-0013',
+        //     'data_nascimento' => '1986-01-08',
+        //     'cpf' => '123.456.789-13'
+        // ],
+        // [
+        //     'id' => 14,
+        //     'nome' => 'Larissa Carvalho',
+        //     'email' => 'larissa.carvalho@email.com',
+        //     'telefone' => '(11) 99999-0014',
+        //     'data_nascimento' => '1997-02-26',
+        //     'cpf' => '123.456.789-14'
+        // ],
+        // [
+        //     'id' => 15,
+        //     'nome' => 'Marcos Antunes',
+        //     'email' => 'marcos.antunes@email.com',
+        //     'telefone' => '(11) 99999-0015',
+        //     'data_nascimento' => '1984-03-18',
+        //     'cpf' => '123.456.789-15'
+        // ]
     ];
 
 }
