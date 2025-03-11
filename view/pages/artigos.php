@@ -18,7 +18,7 @@ require_once '../components/head.php';
             </div>
         </div>
     </div>
-    <table>
+    <table class="tabela">
         <thead>
             <tr>
                 <th>ID</th>
