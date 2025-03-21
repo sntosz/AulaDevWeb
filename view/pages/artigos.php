@@ -45,7 +45,7 @@ require_once '../components/head.php';
 
 </main>
     <?php require_once '../components/footer.php'; ?>
-
+''
     <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
 </body>
 </html>

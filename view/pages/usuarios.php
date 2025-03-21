@@ -1,7 +1,7 @@
 <?php 
 
 require_once './../../config/env.php'; 
-require_once __DIR__ . '\..\..\model\UsuarioModel.php';
+require_once __DIR__ . '\..\..\model\controller\UsuarioModel.php';
 
 $usuariomodel = new UsuarioModel();
 $usuario = $usuariomodel->usuarios;
@@ -20,40 +20,42 @@ $usuario = $usuariomodel->usuarios;
             </div>
         </div>
         <div class="content-popup">
-            <div class="input-box">
-                <label for="">Nome</label>
-                <input class="input-field" type="text">
-            </div>
-            <div class="input-box">
-                <label for="">E-mail</label>
-                <input class="input-field" type="text">
-            </div>
-            <div class="input-box">
-                <label for="">Telefone</label>
-                <input class="input-field" type="text">
-            </div>
-            <div class="input-box">
-                <label for="">Data de Nascimento</label>
-                <input class="input-field" type="date">
-            </div>
-            <div class="input-box">
-                <label for="">CPF</label>
-                <input class="input-field" type="text">
-            </div>
-            <div class="btn-field">
-                <button onclick="fecharPopup()" class="button">Salvar</button>
-            </div>
+            <form action="<?= VARIAVEIS['DIR_ROUTER'] ?>UserRouter.php?acao=registrar">
+                <div class="input-box">
+                    <label for="">Nome</label>
+                    <input class="input-field" type="text">
+                </div>
+                <div class="input-box">
+                    <label for="">E-mail</label>
+                    <input class="input-field" type="text">
+                </div>
+                <div class="input-box">
+                    <label for="">Telefone</label>
+                    <input class="input-field" type="text">
+                </div>
+                <div class="input-box">
+                    <label for="">Data de Nascimento</label>
+                    <input class="input-field" type="date">
+                </div>
+                <div class="input-box">
+                    <label for="">CPF</label>
+                    <input class="input-field" type="text">
+                </div>
+                <div class="btn-field">
+                    <button onclick="fecharPopup()" class="button">Salvar</button>
+                </div>
+            </form>
         </div>
     </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Telefone</th>
-                            <th>Data de Nascimento</th>
+<main class="content-grid">
+    <table class="tabela">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Data de Nascimento</th>
                             <th>CPF</th>
                             <th>Ações</th>
                         </tr>
@@ -73,6 +75,7 @@ $usuario = $usuariomodel->usuarios;
                         
                     <?php endforeach; ?>
                 </table>
+</main>
                 
                 <?php require_once __DIR__ . '\..\components\footer.php'; ?>
                 
