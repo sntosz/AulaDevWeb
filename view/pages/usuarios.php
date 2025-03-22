@@ -1,10 +1,10 @@
 <?php 
 
 require_once './../../config/env.php'; 
-require_once __DIR__ . '\..\..\model\controller\UsuarioModel.php';
+require_once __DIR__ . '\..\..\model\UsuarioModel.php';
 
 $usuariomodel = new UsuarioModel();
-$usuario = $usuariomodel->usuarios;
+$usuario = $usuariomodel->GetAllUser();
 
 ?>
 
@@ -20,26 +20,26 @@ $usuario = $usuariomodel->usuarios;
             </div>
         </div>
         <div class="content-popup">
-            <form action="<?= VARIAVEIS['DIR_ROUTER'] ?>UserRouter.php?acao=registrar">
+            <form action="<?= VARIAVEIS['DIR_ROUTER'] ?>UserModel.php?acao=cadastrar">
                 <div class="input-box">
                     <label for="">Nome</label>
-                    <input class="input-field" type="text">
+                    <input class="input-field" name="nome" type="text">
                 </div>
                 <div class="input-box">
                     <label for="">E-mail</label>
-                    <input class="input-field" type="text">
+                    <input class="input-field" type="text" name="email">
                 </div>
                 <div class="input-box">
                     <label for="">Telefone</label>
-                    <input class="input-field" type="text">
+                    <input name="telefone" class="input-field" type="text">
                 </div>
                 <div class="input-box">
                     <label for="">Data de Nascimento</label>
-                    <input class="input-field" type="date">
+                    <input name="data_nascimento" class="input-field" type="date">
                 </div>
                 <div class="input-box">
                     <label for="">CPF</label>
-                    <input class="input-field" type="text">
+                    <input name="cpf" class="input-field" type="text">
                 </div>
                 <div class="btn-field">
                     <button onclick="fecharPopup()" class="button">Salvar</button>
