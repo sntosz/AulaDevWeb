@@ -2,6 +2,7 @@
 
 require_once './../../config/env.php'; 
 require_once __DIR__ . '\..\..\model\UsuarioModel.php';
+require __DIR__ . '/../components/InputComponent.php';
 
 $usuariomodel = new UsuarioModel();
 $usuario = $usuariomodel->GetAllUser();
@@ -20,26 +21,26 @@ $usuario = $usuariomodel->GetAllUser();
             </div>
         </div>
         <div class="content-popup">
-            <form action="<?= VARIAVEIS['DIR_ROUTER'] ?>UserModel.php?acao=cadastrar">
+            <form action="<?= VARIAVEIS['DIR_CONTROLLER'] ?>UsuarioController.php?acao=cadastrar" method="POST">
                 <div class="input-box">
                     <label for="">Nome</label>
-                    <input class="input-field" name="nome" type="text">
+                    <?php InputComponent('text', 'Digite o Nome', 'nome', null , null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">E-mail</label>
-                    <input class="input-field" type="text" name="email">
+                    <?php InputComponent('text', 'Digite seu melhor E-mail', 'email', null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">Telefone</label>
-                    <input name="telefone" class="input-field" type="text">
+                    <?php InputComponent('text', 'Digite seu Telefone', 'telefone', null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">Data de Nascimento</label>
-                    <input name="data_nascimento" class="input-field" type="date">
+                    <?php InputComponent('date', null , 'data_nascimento', null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">CPF</label>
-                    <input name="cpf" class="input-field" type="text">
+                    <?php InputComponent('text', 'Insira seu CPF', 'cpf', null, null) ?>
                 </div>
                 <div class="btn-field">
                     <button onclick="fecharPopup()" class="button">Salvar</button>
@@ -48,8 +49,15 @@ $usuario = $usuariomodel->GetAllUser();
         </div>
     </div>
 <main class="content-grid">
-    <table class="tabela">
-        <thead>
+    <div class="out_table">
+            <button onclick="mostrarPopup()" class="button" id="plus">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+                Adicionar
+            </button>
+        <table class="tabela">
+            <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
@@ -73,12 +81,13 @@ $usuario = $usuariomodel->GetAllUser();
                             <td><button onclick="mostrarPopup()" class="button">Editar</button> <button class="button">Excluir</button></td>
                         </tr>
                         
-                    <?php endforeach; ?>
-                </table>
-</main>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                </main>
                 
                 <?php require_once __DIR__ . '\..\components\footer.php'; ?>
                 
-    <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
+                <script src="<?= VARIAVEIS['DIR_JS'] ?>main.js"></script>
 </body>
 </html>

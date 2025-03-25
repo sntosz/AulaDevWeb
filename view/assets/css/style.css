@@ -28,8 +28,6 @@ body {
 .tabela{
     margin: auto;
     width: 80%;
-    position: relative;
-    top: 50;
     border-collapse: collapse;
     background-color: white;
     box-shadow: 0 0 10px grey;
@@ -51,7 +49,7 @@ body {
     border: none;
     border-radius: 4px;
     padding: 10px 20px;
-    font-size: 13px;
+    font-size: 16px;
     font-family: "ABeeZee", serif;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -61,6 +59,20 @@ body {
 }
 .button:active {
     background-color: #004494; /* Azul ainda mais escuro quando clicado */
+}
+
+.out_table{
+    width: 98%;
+    height: 80%;
+    padding: 10px;
+}
+
+#plus{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 4rem;
 }
 
 @media (max-width: 600px) {
