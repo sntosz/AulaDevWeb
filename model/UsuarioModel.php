@@ -2,6 +2,7 @@
 require_once __DIR__ .'/../db/Database.php';
 class UsuarioModel{
     private $conn;
+    private $tabela = "usuarios";
 
     public function __construct()
     {
@@ -11,7 +12,7 @@ class UsuarioModel{
 
     public function GetAllUser(){
         try {
-            $sql = "SELECT * FROM usuarios";
+            $sql = "SELECT * FROM $this->tabela";
             $db = $this->conn->prepare($sql);
             $db->execute();
             $user = $db->fetchAll(PDO::FETCH_ASSOC);
@@ -24,7 +25,7 @@ class UsuarioModel{
         try {
 
            
-            $sql = "INSERT INTO usuario (nome, email, telefone, data_nascimento, cpf) VALUES(:nome,:email,:telefone,:data_nascimento,:cpf)";
+            $sql = "INSERT INTO $this->tabela (nome, email, telefone, data_nascimento, cpf) VALUES(:nome,:email,:telefone,:data_nascimento,:cpf)";
             $db = $this->conn->prepare($sql);
             $db->bindParam(":nome", $nome);
             $db->bindParam(":email", $email);
@@ -37,12 +38,12 @@ class UsuarioModel{
                 return false;
             }
         } catch (\Exception $th) {
-            //throw $th;
+            throw $th;
         }
     }
     public function DeleteUser($id){
         try {
-            $sql = "DELETE FROM usuario WHERE id_usuario = :id";
+            $sql = "DELETE FROM $this->tabela WHERE id = :id";
             $db = $this->conn->prepare($sql);
             $db->bindParam(":id", $id);
             if($db->execute()){
@@ -51,12 +52,12 @@ class UsuarioModel{
                 return false;
             }
         } catch (\Exception $th) {
-            //throw $th;
+            throw $th;
         }
     }
     public function UpdateUser($id,$nome, $senha){
         try {
-            $sql = "UPDATE usuario SET nome = :nome, email = :email, telefone = :telefone, data_nascimento = :data_nascimento, cpf = :cpf WHERE id_usuario = :id";
+            $sql = "UPDATE $this->tabela SET nome = :nome, email = :email, telefone = :telefone, data_nascimento = :data_nascimento, cpf = :cpf WHERE id_usuario = :id";
             $db = $this->conn->prepare($sql);
             $db->bindParam(":nome", $nome);
             $db->bindParam(":email", $email);
@@ -70,7 +71,7 @@ class UsuarioModel{
                 return false;
             }
         } catch (\Exception $th) {
-            //throw $th;
+            throw $th;
         }
     }
     

@@ -27,6 +27,7 @@ body {
 }
 .tabela{
     margin: auto;
+    margin-top: 1rem;
     width: 80%;
     border-collapse: collapse;
     background-color: white;
@@ -34,8 +35,8 @@ body {
     tbody{
         td{
             border-top: 1px solid #a3a3a3;
-            padding: 5px;
-            text-align: center;
+            padding: 4px;
+            text-align: center; 
         }
     }
 }  
@@ -63,8 +64,7 @@ body {
 
 .out_table{
     width: 98%;
-    height: 80%;
-    padding: 10px;
+    height: calc(100vh - 68px - 22px);
 }
 
 #plus{
@@ -72,7 +72,12 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    left: 4rem;
+    left: 7.8rem;
+    top: 7px;
+}
+a{
+    text-decoration: none;
+    color: white;
 }
 
 @media (max-width: 600px) {

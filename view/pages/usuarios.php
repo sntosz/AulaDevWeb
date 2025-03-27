@@ -24,23 +24,23 @@ $usuario = $usuariomodel->GetAllUser();
             <form action="<?= VARIAVEIS['DIR_CONTROLLER'] ?>UsuarioController.php?acao=cadastrar" method="POST">
                 <div class="input-box">
                     <label for="">Nome</label>
-                    <?php InputComponent('text', 'Digite o Nome', 'nome', null , null) ?>
+                    <?php InputComponent('text', 'Digite o Nome', 'nome', null , null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">E-mail</label>
-                    <?php InputComponent('text', 'Digite seu melhor E-mail', 'email', null, null) ?>
+                    <?php InputComponent('text', 'Digite seu melhor E-mail', 'email', null, null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">Telefone</label>
-                    <?php InputComponent('text', 'Digite seu Telefone', 'telefone', null, null) ?>
+                    <?php InputComponent('text', 'Digite seu Telefone', 'telefone', null, null, 11) ?>
                 </div>
                 <div class="input-box">
                     <label for="">Data de Nascimento</label>
-                    <?php InputComponent('date', null , 'data_nascimento', null, null) ?>
+                    <?php InputComponent('date', null , 'data_nascimento', null, null, null) ?>
                 </div>
                 <div class="input-box">
                     <label for="">CPF</label>
-                    <?php InputComponent('text', 'Insira seu CPF', 'cpf', null, null) ?>
+                    <?php InputComponent('text', 'Insira seu CPF', 'cpf', null, null, 11) ?>
                 </div>
                 <div class="btn-field">
                     <button onclick="fecharPopup()" class="button">Salvar</button>
@@ -78,7 +78,19 @@ $usuario = $usuariomodel->GetAllUser();
                             <td><?php echo $usuarios['telefone']; ?></td>
                             <td><?php echo $usuarios['data_nascimento']; ?></td>
                             <td><?php echo $usuarios['cpf']; ?></td>
-                            <td><button onclick="mostrarPopup()" class="button">Editar</button> <button class="button">Excluir</button></td>
+                            <td>
+                                <a href="editar.php"> 
+                                <button>
+                                    <span class="material-symbols-outlined">edit</span>
+                                </button>
+                                </a>
+                                <form action="../../controller/UsuarioController.php?acao=deletar" method="POST">
+                                    <input type="hidden" name="id" value="">
+                                    <button>
+                                        <span class="material-symbols-outlined">delete</span>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         
                         <?php endforeach; ?>
