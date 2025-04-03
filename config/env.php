@@ -1,16 +1,14 @@
 <?php
 
-$caminhoArquivo = __DIR__ . '/../.env';
-$conteudoArquivo = file($caminhoArquivo);
+$filename = __DIR__ . "/../.env";
+$envsParsed = [];
 
-$variaveis = [];
+$envs = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-array_map(
-    function ($linha) use (&$variaveis) {
-        list($key, $val) = explode('=', $linha); 
-        $variaveis[$key] = $val;
-    },
-    $conteudoArquivo
-);
+array_map(function ($env) use (&$envsParsed) { 
+    list($key, $value) = explode("=", $env);
 
-define('VARIAVEIS', $variaveis);
+    $envsParsed[$key] = $value;
+}, $envs);
+
+define("APP_CONSTANTS", $envsParsed);

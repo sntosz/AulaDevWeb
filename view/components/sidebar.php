@@ -1,54 +1,47 @@
-<?php require_once "../../config/env.php"; ?>
+<?php require_once __DIR__ . '/../../config/env.php'; ?>
 
-<!-- lateral -->
 <aside id="sidebar" class="sidebar">
-    <div id="menu-mobile" class="btn-icon menu-mobile">
-        <span class="material-symbols-outlined">
+    <div id="mobile-menu" class="btn-icon mobile-menu">
+        <span class="material-symbols-outlined open">
             menu
         </span>
+        <span class="material-symbols-outlined close">
+            close
+        </span>
     </div>
-
     <nav class="nav">
-        <img src="<?= VARIAVEIS['DIR_IMG'] ?>logo.jpg" alt="logo">
+        <img class="nav-logo" src="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_IMG'] ?>logo.jpg" alt="logo">
         <ul id="nav-items" class="nav-items">
             <li class="nav-item">
-                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>home.php">
+                <a class="nav-link" href="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/home.php' ?>">
                     <span class="material-symbols-outlined">
                         home
                     </span>
-                    <span>
-                        Home
-                    </span>
+                    <span>Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>artigos.php">
+                <a class="nav-link" href="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/artigos.php' ?>">
                     <span class="material-symbols-outlined">
                         news
                     </span>
-                    <span>
-                        Artigos
-                    </span>
+                    <span>Artigos</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>categorias.php">
+                <a class="nav-link" href="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/categorias.php' ?>">
                     <span class="material-symbols-outlined">
                         label
                     </span>
-                    <span>
-                        Categorias
-                    </span>
+                    <span>Categorias</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="<?= VARIAVEIS['DIR_PAGES'] ?>usuarios.php">
+                <a class="nav-link" href="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/usuarios.php' ?>">
                     <span class="material-symbols-outlined">
-                        group
+                        manage_accounts
                     </span>
-                    <span>
-                        Usuários
-                    </span>
+                    <span>Usuários</span>
                 </a>
             </li>
         </ul>

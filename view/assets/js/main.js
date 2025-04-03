@@ -1,38 +1,20 @@
-// Marca o menu ativo
+console.log('js foi carregado')
+
+// marca a o menu como ativo
+let uri = document.location.pathname
+uri = uri.substring(0, uri.length - 4) // desconta os 4 ultimos caracteres do .php
 document
-	.querySelector('#nav-items')
-	.querySelectorAll('.nav-link')
-    .forEach((navLink) => {
-        const uriAtual = window.location.pathname
-        if (navLink.href.includes(uriAtual)) {
-            navLink.classList.add('active')
+    .querySelector('#nav-items')
+    .querySelectorAll('a.nav-link')
+    .forEach((link) => {
+        if (link.href.includes(uri)) {
+            link.classList.add('active')
         }
     })
 
-const mobileMenu = document.querySelector('#menu-mobile')
+// abre o sidebar no mobile
 const sidebar = document.querySelector('#sidebar')
-mobileMenu.addEventListener('click', () => {
-    sidebar.classList.toggle('open')
+const menuMobile = document.querySelector('#mobile-menu')
+menuMobile.addEventListener('click', () => {
+    sidebar.classList.toggle('opened')
 })
-
-// Popup de editar
-
-function mostrarPopup() {
-    document.getElementById('popup').style.display = 'block';
-    document.getElementById('popupOverlay').style.display = 'block';
-}
-
-function fecharPopup() {
-    document.getElementById('popup').style.display = 'none';
-    document.getElementById('popupOverlay').style.display = 'none';
-    
-}
-// dropdown
-function toggleDropdown() {
-    var dropdown = document.getElementById("dropdown");
-    if (dropdown.style.display === "block") {
-        dropdown.style.display = "none";
-    } else {
-        dropdown.style.display = "block";
-    }
-}

@@ -1,4 +1,4 @@
 <?php
-require_once './config/env.php';
+require_once __DIR__ . '/config/env.php';
 
-header('Location: view/pages/home.php');
+header('Location: ' . APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/artigos.php');

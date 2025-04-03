@@ -1,8 +1,7 @@
-<?php require_once "../../config/env.php"; ?>
+<?php require_once __DIR__ . '/../../config/env.php'; ?>
 
-<!-- navegação -->
-<header class="navbar-grid">
+<header class="navbar">
     <nav>
-        <img src="<?= VARIAVEIS['DIR_IMG'] ?>user.jpg" alt="imagem-usuario">
+        <img src="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_IMG'] ?>user.jpg" alt="imagem-usuario">
     </nav>
 </header>

@@ -2,9 +2,9 @@
 
 require_once __DIR__ . "/../config/Database.php";
 
-class UserModel {
+class CategoriaModel {
 
-    private $tabela = "usuario";
+    private $tabela = "categoria";
     private $conn;
 
     public function __construct() {
@@ -29,29 +29,21 @@ class UserModel {
     }
 
     public function criar($nome) {
-        $query = "INSERT INTO $this->tabela (nome, email, telefone, data_nascimento, cpf) VALUES (:nome, :email, :telefone, :data_nascimento, :cpf);";
+        $query = "INSERT INTO $this->tabela (nome) VALUES (:nome);";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':data_nascimento', $data_nascimento);
-        $stmt->bindParam(':cpf', $cpf);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;
     }
 
     public function editar($categoria) {
-        $query = "UPDATE $this->tabela SET nome = :nome , email = :email, telefone = :telefone, data_nascimento = :data_nascimento WHERE id = :id;";
+        $query = "UPDATE $this->tabela SET nome = :nome WHERE id = :id;";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":id", $categoria["id"]);
-        $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':data_nascimento', $data_nascimento);
-        $stmt->bindParam(':cpf', $cpf);
+        $stmt->bindParam(":nome", $categoria["nome"]);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;
