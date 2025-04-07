@@ -28,11 +28,11 @@ class CategoriaModel {
         return $stmt->fetch();
     }
 
-    public function criar($nome) {
+    public function criar($categoria) {
         $query = "INSERT INTO $this->tabela (nome) VALUES (:nome);";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':nome', $categoria['nome']);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;

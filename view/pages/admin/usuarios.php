@@ -26,16 +26,23 @@
                 <thead>
                     <tr>
                         <td>ID</td>
-                        <td>Email</td>
                         <td>Nome</td>
+                        <td>Email</td>
+                        <td>Telefone</td>
+                        <td>Data Nascimento</td>
+                        <td>CPF</td>
+                        <td></td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($lista as $item) { ?>
                     <tr>
                         <td><?= $item['id'] ?></td>
-                        <td><?= $item['email'] ?></td>
                         <td><?= $item['nome'] ?></td>
+                        <td><?= $item['email'] ?></td>
+                        <td><?= $item['telefone'] ?></td>
+                        <td><?= $item['data_nascimento'] ?></td>
+                        <td><?= $item['cpf'] ?></td>
                         <td class="table-actions">
                             <a
                                 href="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/usuario.php?id=' . $item['id'] ?>">
@@ -44,11 +51,13 @@
                                 </span>
                             </a>
                             <form method="POST"
-                                action="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/usuario_excluir.php'?>">
+                                action="<?= APP_CONSTANTS['APP_URL'] . APP_CONSTANTS['PATH_PAGES'] . 'admin/usuario_excluir.php' ?>">
                                 <input type="hidden" name="id" value="<?= $item['id'] ?>">
-                                <span class="btn-icon material-symbols-outlined" title="Excluir">
-                                    delete
-                                </span>
+                                <button>
+                                    <span class="btn-icon material-symbols-outlined" title="Excluir">
+                                        delete
+                                    </span>
+                                </button>
                             </form>
                         </td>
                     </tr>

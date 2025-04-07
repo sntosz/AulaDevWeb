@@ -53,22 +53,25 @@ class ArtigoModel {
 
         return $stmt->rowCount() > 0;
     }
-    public function criar($nome) {
-        
-        $query = "INSERT INTO $this->tabela (nome) VALUES (:nome);";
+    public function criar($artigo) {
+        $query = "INSERT INTO $this->tabela (titulo, conteudo, categoria_id) VALUES (:titulo, :conteudo, :categoria_id);";
 
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':titulo', $artigo['titulo']);
+        $stmt->bindParam(':conteudo', $artigo['conteudo']);
+        $stmt->bindParam(':categoria_id', $artigo['categoria_id']);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;
     }
     public function editar($artigo) {
-        $query = "UPDATE $this->tabela SET nome = :nome WHERE id = :id;";
+        $query = "UPDATE $this->tabela SET titulo = :titulo, conteudo = :conteudo, categoria_id = :categoria_id WHERE id = :id;";
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":id", $artigo["id"]);
-        $stmt->bindParam(":nome", $artigo["nome"]);
+        $stmt->bindParam(":titulo", $artigo["titulo"]);
+        $stmt->bindParam(":conteudo", $artigo["conteudo"]);
+        $stmt->bindParam(":categoria_id", $artigo["categoria_id"]);
         $stmt->execute();
 
         return $stmt->rowCount() > 0;

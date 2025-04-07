@@ -9,7 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (empty($_POST['id'])) {
         // Criar - se não tiver id
-        $salvou = $artigoModel->criar($_POST['nome']);
+        $salvou = $artigoModel->criar([
+            'titulo' => $_POST['titulo'],
+            'conteudo' => $_POST['conteudo'],
+            'categoria_id' => $_POST['categoriaId']
+        ]);
     } else {
         // Editar - se tiver id
         $salvou = $artigoModel->editar([
