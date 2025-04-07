@@ -35,7 +35,7 @@
                     <?php foreach ($lista as $item) { ?>
                     <tr>
                         <td><?= $item['id'] ?></td>
-                        <td><?= $item['categoria_id'] ?></td>
+                        <td><?= $item['categoria_nome'] ?></td>
                         <td><?= $item['titulo'] ?></td>
                         <td class="table-actions">
                             <a

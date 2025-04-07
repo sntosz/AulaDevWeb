@@ -11,10 +11,13 @@ class ArtigoModel {
     public function __construct() {
         $db = new Database();
         $this->conn = $db->conectar();
+        $this->categoriaModel = new CategoriaModel();
     }
 
     public function listar() {
-        $query = "SELECT * FROM $this->tabela;";
+        $query = "SELECT a.*, c.nome as categoria_nome 
+                  FROM $this->tabela a 
+                  LEFT JOIN categoria c ON a.categoria_id = c.id;";
 
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -30,12 +33,12 @@ class ArtigoModel {
     }
 
     private function popularArtigosComCategoria($artigos) {
-        $categorias = $this->categoriaModel->categorias;
+        $categorias = $this->categoriaModel->listar();
         $artigosPopulados = [];
 
-        foreach ($this->categoriaModel->categorias as $categoria) {
+        foreach ($categorias as $categoria) {
             foreach ($artigos as $artigo) {
-                if ($categoria['id'] == $artigo['categoriaId']) {
+                if ($categoria['id'] == $artigo['categoria_id']) {
                     $artigo['categoria'] = $categoria;
                     array_push($artigosPopulados, $artigo);
                 }
